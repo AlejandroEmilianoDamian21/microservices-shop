@@ -1,0 +1,38 @@
+version: '3'
+services:
+  ### Postgres database for Inventory
+  db-inventory:
+    container_name: db-inventory
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_inventory
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5451:5432"  # Aquí se debe mapear el puerto 5432 del contenedor al 5451 del host.
+
+  ### MySQL database for orders
+  db-orders:
+    container_name: db-orders
+    image: mysql:8.0.33
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ms_orders
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+
+  ### Postgres database for Product
+  db-product:
+    container_name: db-product
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_product
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5433:5432"  # Aquí se debe mapear el puerto 5432 del contenedor al 5433 del host.
