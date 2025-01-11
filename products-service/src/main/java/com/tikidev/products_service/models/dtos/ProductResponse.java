@@ -4,7 +4,7 @@ import lombok.Builder;
 
 @Builder
 public class ProductResponse {
-    private long  id;
+    private Long  id;
     private String sku;
     private String name;
     private String description;

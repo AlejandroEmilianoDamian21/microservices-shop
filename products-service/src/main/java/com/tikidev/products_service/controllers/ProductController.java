@@ -7,6 +7,7 @@ import com.tikidev.products_service.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +21,9 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addProduct(@RequestBody ProductRequest productRequest) {
+    public ResponseEntity<ProductRequest> addProduct(@RequestBody ProductRequest productRequest) {
         this.productService.addProduct(productRequest);
+        return ResponseEntity.status(HttpStatus.CREATED).body(productRequest);
     }
 
     @GetMapping
