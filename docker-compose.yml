@@ -20,9 +20,8 @@ services:
     environment:
       MYSQL_DATABASE: ms_orders
       MYSQL_ROOT_PASSWORD: root
-
     ports:
-      - "3307:3307" # Esto significa que el puerto 3307 en tu máquina local está conectado al puerto 3307 dentro del contenedor
+      - "3307:3306" # Esto significa que el puerto 3307 en tu máquina local está conectado al puerto 3307 dentro del contenedor
 
   ### Postgres database for Product
   db-product:
