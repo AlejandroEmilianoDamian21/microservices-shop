@@ -1,8 +1,6 @@
 package com.tikidev.orders_service.services;
 
-import com.tikidev.orders_service.models.dtos.BaseResponse;
-import com.tikidev.orders_service.models.dtos.OrderItemRequest;
-import com.tikidev.orders_service.models.dtos.OrderRequest;
+import com.tikidev.orders_service.models.dtos.*;
 import com.tikidev.orders_service.models.entities.Order;
 import com.tikidev.orders_service.models.entities.OrderItems;
 import com.tikidev.orders_service.repositories.OrderRepository;
@@ -10,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -51,5 +50,25 @@ public class OrderService {
                 .quantity(orderItemRequest.getQuantity())
                 .order(order)
                 .build();
+    }
+
+    public List<OrderResponse> getAllOrders(){
+        List<Order> orders =  this.orderRepository.findAll();
+        return  orders.stream().map(this::mapToOrderResponse).toList();
+    }
+
+    private OrderResponse mapToOrderResponse(Order order) {
+        return  new OrderResponse(order.getId(),order.getOrderNumber()
+                , order.getOrderItems().stream().map(this::mapToOrderItemsResponse).toList()
+        );
+    }
+
+    private OrderItemsResponse mapToOrderItemsResponse(OrderItems orderItems) {
+        return new OrderItemsResponse(
+                orderItems.getId(),
+                orderItems.getSku(),
+                orderItems.getPrice(),
+                orderItems.getQuantity()
+        );
     }
 }
