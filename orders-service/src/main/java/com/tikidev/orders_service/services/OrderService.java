@@ -6,7 +6,6 @@ import com.tikidev.orders_service.models.dtos.OrderRequest;
 import com.tikidev.orders_service.models.entities.Order;
 import com.tikidev.orders_service.models.entities.OrderItems;
 import com.tikidev.orders_service.repositories.OrderRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
