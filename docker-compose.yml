@@ -10,7 +10,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
     ports:
-      - "5451:5432"  # Esto significa que el puerto 5451 en tu máquina local está conectado al puerto 5432 dentro del contenedor
+      - "5450:5432"  # Esto significa que el puerto 5451 en tu máquina local está conectado al puerto 5432 dentro del contenedor
 
   ### MySQL database for orders
   db-orders:
