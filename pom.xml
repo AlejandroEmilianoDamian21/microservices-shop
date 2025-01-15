@@ -33,6 +33,7 @@
 	</properties>
 
 	<modules>
+		<module>discovery-server</module>
 		<module>api-gateway</module>
 		<module>inventory-service</module>
 		<module>orders-service</module>
@@ -60,5 +61,16 @@
 
 		</plugins>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>netflix-candidates</id>
+			<name>Netflix Candidates</name>
+			<url>https://artifactory-oss.prod.netflix.net/artifactory/maven-oss-candidates</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 </project>
