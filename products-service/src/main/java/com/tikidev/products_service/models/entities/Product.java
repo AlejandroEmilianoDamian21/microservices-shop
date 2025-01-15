@@ -20,7 +20,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(long id, String sku, String name, String description, double price, Boolean status) {
+    public Product(Long id, String sku, String name, String description, double price, Boolean status) {
         this.id = id;
         this.sku = sku;
         this.name = name;
@@ -33,7 +33,7 @@ public class Product {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
